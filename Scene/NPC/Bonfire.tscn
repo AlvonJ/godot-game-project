@@ -46,17 +46,13 @@ animations = [ {
 } ]
 
 [node name="Bonfire" type="StaticBody2D"]
-position = Vector2( 417, 289 )
 scale = Vector2( 3, 3 )
 collision_layer = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0.666672, 1.33334 )
 frames = SubResource( 8 )
-frame = 2
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
-position = Vector2( 0.666672, 1.33334 )
 polygon = PoolVector2Array( -13, 1.33333, 13, 1.33333, 13.3333, 16.6667, -13.3333, 16.6667, -13.6667, 1.33333 )

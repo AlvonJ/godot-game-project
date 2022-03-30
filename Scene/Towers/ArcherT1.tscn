@@ -18,14 +18,20 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 6 )
 
-[node name="Node2D" type="Node2D"]
+[node name="ArcherT1" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="ArcherT1" type="StaticBody2D" parent="."]
+position = Vector2( 32, 16 )
+scale = Vector2( 3.5, 4 )
+collision_layer = 4
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="StaticBody2D"]
+[node name="ArcherAnimation" type="AnimatedSprite" parent="ArcherT1"]
 frames = SubResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcherT1"]
 visible = false
 position = Vector2( 0, 9 )
 shape = SubResource( 3 )

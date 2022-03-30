@@ -31,15 +31,19 @@ animations = [ {
 } ]
 
 [node name="Oldman" type="StaticBody2D"]
-position = Vector2( -1003, -434 )
+position = Vector2( -1, 0 )
 scale = Vector2( 3, 3 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 489, 239 )
 frames = SubResource( 5 )
 frame = 3
 playing = true
 flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -490.667, -239 )
 polygon = PoolVector2Array( 481, 241.333, 499, 241.667, 499, 253.333, 478, 253, 481, 249 )

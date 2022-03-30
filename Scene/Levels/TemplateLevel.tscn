@@ -155,7 +155,7 @@ points = PoolVector2Array( 10.0594, 33.3987, 53.2612, 34.7383, 53.5961, 45.1202,
 
 [sub_resource type="Curve2D" id=9]
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -51, 579, -70.984, 30.7244, 70.984, -30.7244, 398, 551, -46.6164, 7.41624, 46.6164, -7.41624, 394, 416, 0, 0, 0, 0, 597, 387 )
+"points": PoolVector2Array( 0, 0, 0, 0, -51, 579, -23.8406, 31.8469, 23.8406, -31.8469, 398, 551, -46.6164, 7.41624, 46.6164, -7.41624, 394, 416, 0, 0, 0, 0, 597, 387 )
 }
 
 [node name="TemplateLevel" type="Node2D"]
@@ -191,7 +191,9 @@ curve = SubResource( 9 )
 [node name="ShadowHound" parent="YSort/Enemies/Path" instance=ExtResource( 5 )]
 position = Vector2( -51, 579 )
 rotation = 0.00539141
+rotate = false
 
 [node name="SlimeBlack" parent="YSort/Enemies/Path" instance=ExtResource( 6 )]
 position = Vector2( -51, 579 )
 rotation = 0.00539141
+rotate = false

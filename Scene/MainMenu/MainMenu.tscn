@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scene/MainMenu/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scene/MainMenu/Font/Minecraft.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scene/MainMenu/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://Scene/MainMenu/background/ember.png" type="Texture" id=4]
+[ext_resource path="res://Scene/MainMenu/background/Menu_background.webm" type="VideoStream" id=5]
+[ext_resource path="res://Scene/MainMenu/background.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+outline_size = 3
+outline_color = Color( 0.027451, 0.027451, 0.027451, 1 )
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 3 )
+
+[node name="background" type="VideoPlayer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -22.0
+rect_scale = Vector2( 0.997532, 1.03071 )
+stream = ExtResource( 5 )
+autoplay = true
+script = ExtResource( 6 )
+
+[node name="Text" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="CenterContainer" parent="Text"]
+margin_right = 1280.0
+margin_bottom = 360.0
+rect_min_size = Vector2( 0, 360 )
+
+[node name="Label" type="Label" parent="Text/Title"]
+visible = false
+margin_left = 507.0
+margin_top = 160.0
+margin_right = 773.0
+margin_bottom = 200.0
+custom_fonts/font = SubResource( 1 )
+text = "AMBER GAME"
+
+[node name="Sprite" type="Sprite" parent="Text/Title"]
+position = Vector2( 640, 180 )
+texture = ExtResource( 4 )
+
+[node name="Option" type="VBoxContainer" parent="Text"]
+margin_top = 364.0
+margin_right = 1280.0
+margin_bottom = 724.0
+rect_min_size = Vector2( 0, 360 )
+alignment = 1
+
+[node name="Start" parent="Text/Option" instance=ExtResource( 1 )]
+margin_top = 108.0
+margin_right = 1280.0
+margin_bottom = 178.0
+rect_min_size = Vector2( 0, 70 )
+focus_neighbour_top = NodePath("../Exit")
+focus_neighbour_bottom = NodePath("../Exit")
+arrow_margin_from_center = 125
+
+[node name="Exit" parent="Text/Option" instance=ExtResource( 1 )]
+margin_top = 182.0
+margin_right = 1280.0
+margin_bottom = 252.0
+rect_min_size = Vector2( 0, 70 )
+focus_neighbour_top = NodePath("../Start")
+focus_neighbour_bottom = NodePath("../Start")
+text = "Exit"
+arrow_margin_from_center = 101
+
+[connection signal="finished" from="background" to="background" method="_on_background_finished"]
+[connection signal="pressed" from="Text/Option/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Text/Option/Exit" to="." method="_on_Option_pressed"]

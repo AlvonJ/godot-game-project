@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/paper.png-7cd684d0ddd30cc8f9538cb398c16f97.stex"
+path="res://.import/attack.png-07a6fae01bdd2664811d103c50760f04.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scene/MainMenu/paper.png"
-dest_files=[ "res://.import/paper.png-7cd684d0ddd30cc8f9538cb398c16f97.stex" ]
+source_file="res://UI/Buttons/attack.png"
+dest_files=[ "res://.import/attack.png-07a6fae01bdd2664811d103c50760f04.stex" ]
 
 [params]
 

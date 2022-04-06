@@ -1,37 +1,70 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://towers/arrow_tower.png" type="Texture" id=1]
+[ext_resource path="res://Scene/Towers/ArcherT1.gd" type="Script" id=2]
 
-[sub_resource type="AtlasTexture" id=1]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 480, 0, 48, 48 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 31.5, 28 )
 
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[sub_resource type="CircleShape2D" id=1]
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 10, 6 )
-
-[node name="ArcherT1" type="Node2D"]
-
-[node name="ArcherT1" type="StaticBody2D" parent="."]
-position = Vector2( 32, 16 )
-scale = Vector2( 3.5, 4 )
-collision_layer = 4
-__meta__ = {
-"_edit_group_": true
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
 }
 
-[node name="ArcherAnimation" type="AnimatedSprite" parent="ArcherT1"]
-frames = SubResource( 2 )
+[sub_resource type="Animation" id=3]
+resource_name = "deploy"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Tower:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1, 2, 3, 4, 5 ]
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcherT1"]
+[node name="ArcherT1" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Tower" type="Sprite" parent="."]
+position = Vector2( 32, 16 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 1 )
+hframes = 16
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 33, 32 )
+shape = SubResource( 4 )
+
+[node name="Range" type="Area2D" parent="."]
+position = Vector2( 32, 16 )
+scale = Vector2( 3, 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 visible = false
-position = Vector2( 0, 9 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/deploy = SubResource( 3 )
+
+[connection signal="body_entered" from="Range" to="." method="_on_Range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_Range_body_exited"]

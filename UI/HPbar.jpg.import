@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cartoon_buttons_game_2.jpg-34763fa7261feab845b6f728b373d743.stex"
+path="res://.import/HPbar.jpg-f2e6d993f07ffb08337a4d8f01a43ef3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scene/UI/Cartoon_buttons_game_2.jpg"
-dest_files=[ "res://.import/Cartoon_buttons_game_2.jpg-34763fa7261feab845b6f728b373d743.stex" ]
+source_file="res://UI/HPbar.jpg"
+dest_files=[ "res://.import/HPbar.jpg-f2e6d993f07ffb08337a4d8f01a43ef3.stex" ]
 
 [params]
 

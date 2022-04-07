@@ -1,11 +1,9 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://tiles/tiles-64.png" type="Texture" id=1]
 [ext_resource path="res://Scene/NPC/Bonfire.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scene/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tiles/Obstructed.png" type="Texture" id=4]
-[ext_resource path="res://Scene/Enemies/ShadowHound.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scene/Enemies/SlimeBlack.tscn" type="PackedScene" id=6]
 
 [sub_resource type="NavigationPolygon" id=9]
 vertices = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -217,12 +215,3 @@ position = Vector2( 555, 300 )
 [node name="Towers" type="YSort" parent="YSort"]
 
 [node name="Enemies" type="YSort" parent="YSort"]
-
-[node name="ShadowHound" parent="YSort/Enemies" instance=ExtResource( 5 )]
-visible = false
-position = Vector2( 194, 772 )
-
-[node name="BlackSlime" parent="YSort/Enemies" instance=ExtResource( 6 )]
-visible = false
-position = Vector2( 60, -25 )
-scale = Vector2( 1.5, 1.5 )

@@ -18,7 +18,7 @@ var player_in_area:bool = false
 signal base_damage(damage)
 
 var hp = 50
-var base_damage = 21
+var base_damage = 1
 
 onready var health_bar = $HealthBar
 onready var animation_player = $AnimationPlayer
@@ -51,13 +51,15 @@ func _physics_process(delta):
 			navigate_the_player()
 			if in_attack_area:
 				animation_player.play("attack")
+				hit(base_damage)
+				yield(get_tree().create_timer(1), "timeout")
 			else:
 				animation_player.play("walk")
 			move_to_player()
 		move_to_bonfire()
 	
 #	# Set HealthBar Position
-	health_bar.set_position(position - Vector2(15,17))
+	health_bar.set_position(position - Vector2(13,17))
 
 ## Move to bonfire
 func navigate_the_bonfire():
@@ -88,26 +90,14 @@ func generate_player_path():
 func move_to_player():
 	velocity1 = move_and_slide(velocity1)
 	
-func _on_PlayerDetector_area_entered(area):
-	player_in_area = true
-	return player_in_area
-
-func _on_PlayerDetector_area_exited(area):
-	player_in_area = false
-	return player_in_area
-	
-func _on_AttackDetector_area_entered(area):
-	in_attack_area = true
-	return in_attack_area
-	
-func _on_AttackDetector_area_exited(area):
-	in_attack_area = false
-	return in_attack_area
-
 
 #onready var impact_area = $Impact
 #var projectile_impact = preload("res://Scenes/SupportScenes/ProjectileImpact.tscn")
 
+func hit(damage):
+	emit_signal("base_damage", base_damage)
+
+	
 
 func on_hit(damage):
 #	impact()
@@ -118,7 +108,7 @@ func on_hit(damage):
 		
 func on_destroy():
 	animation_player.queue_free()
-	yield(get_tree().create_timer(0.2), "timeout")
+#	yield(get_tree().create_timer(0.2), "timeout")
 	self.queue_free()
 	
 

@@ -1,5 +1,6 @@
 extends Node2D
 
+signal game_finished(result)
 
 var map_node
 
@@ -51,7 +52,7 @@ func retrieve_wave_data():
 func spawn_enemies(wave_data):
 	for i in wave_data:
 		var new_enemy = load("res://Scene/Enemies/"+ i[0] +".tscn").instance()
-#		new_enemy.connect("base_damage", self, "on_base_damage")
+		new_enemy.connect("base_damage", self, "on_base_damage")
 		map_node.get_node("YSort").get_node("Enemies").add_child(new_enemy, true)
 		yield(get_tree().create_timer(i[1]), "timeout")
 		
@@ -97,3 +98,9 @@ func verify_and_build():
 		new_tower.get_node("AnimationPlayer").play("deploy")
 		map_node.get_node("TowerExclusion").set_cellv(build_tile, 4)
 
+func on_base_damage(damage):
+	base_health -= damage
+	if base_health <= 0:
+		emit_signal("game_finished", false)
+	else:
+		$UI.update_health_bar(base_health)

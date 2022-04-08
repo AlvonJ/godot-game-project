@@ -1,6 +1,6 @@
 extends VideoPlayer
 
-var loop;
+var loop
 
 func _ready():
 	pass

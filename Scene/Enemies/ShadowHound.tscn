@@ -48,7 +48,24 @@ radius = 9.5
 
 [node name="ShadowHound" type="KinematicBody2D" groups=["Enemy"]]
 scale = Vector2( 2, 2 )
+collision_layer = 8
+collision_mask = 5
 script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 18 )
+anims/walk = SubResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -2.38419e-07 )
+scale = Vector2( 0.75, 0.734375 )
+texture = ExtResource( 1 )
+hframes = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 1.5, 3 )
+shape = SubResource( 17 )
 
 [node name="HealthBar" type="TextureProgress" parent="."]
 margin_left = -15.0
@@ -64,22 +81,6 @@ nine_patch_stretch = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/attack = SubResource( 18 )
-anims/walk = SubResource( 19 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -2.38419e-07 )
-scale = Vector2( 0.75, 0.734375 )
-texture = ExtResource( 1 )
-hframes = 15
-frame = 9
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 1.5, 3 )
-shape = SubResource( 17 )
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 visible = false

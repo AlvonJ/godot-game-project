@@ -29,11 +29,13 @@ func turn():
 
 func select_enemy():
 	var enemy_progress_array = []
+#	for i in enemy_array:
+#		enemy_progress_array.append(bonfire_position - i.position)
+#	var min_offset = enemy_progress_array.min()
+#	var enemy_index = enemy_progress_array.find(min_offset)
 	for i in enemy_array:
-		enemy_progress_array.append(bonfire_position - i.position)
-	var min_offset = enemy_progress_array.min()
-	var enemy_index = enemy_progress_array.find(min_offset)
-	enemy = enemy_array[enemy_index]
+		enemy_progress_array.append(i)
+	enemy = enemy_array[0]
 
 func fire():
 	ready = false

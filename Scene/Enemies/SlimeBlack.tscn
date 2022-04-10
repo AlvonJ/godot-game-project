@@ -50,7 +50,6 @@ radius = 11.6726
 [node name="BlackSlime" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
 collision_layer = 8
-collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

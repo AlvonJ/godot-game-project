@@ -10,15 +10,16 @@ var navigation1: Navigation2D = null
 var bonfire = null
 var player = null
 var in_attack_area: bool = false
-var player_in_area:bool = false
+var player_in_area: bool = false
 
 ##############
 #TAKE DAMAGE
 ##############
 signal base_damage(damage)
+signal dead(money)
 
 var hp = 50
-var base_damage = 1
+var base_damage = 0.1
 
 onready var health_bar = $HealthBar
 onready var animation_player = $AnimationPlayer
@@ -52,7 +53,6 @@ func _physics_process(delta):
 			if in_attack_area:
 				animation_player.play("attack")
 				hit(base_damage)
-				yield(get_tree().create_timer(1), "timeout")
 			else:
 				animation_player.play("walk")
 			move_to_player()
@@ -68,6 +68,7 @@ func navigate_the_bonfire():
 		
 		if global_position == path[0]:
 			path.pop_front()
+			
 func generate_bonfire_path():
 	if navigation != null and bonfire != null:
 		path = navigation.get_simple_path(global_position, bonfire.global_position, true)
@@ -95,7 +96,7 @@ func move_to_player():
 #var projectile_impact = preload("res://Scenes/SupportScenes/ProjectileImpact.tscn")
 
 func hit(damage):
-	emit_signal("base_damage", base_damage)
+	emit_signal("base_damage", damage)
 
 	
 
@@ -108,6 +109,7 @@ func on_hit(damage):
 		
 func on_destroy():
 	animation_player.queue_free()
+	emit_signal("dead", 30)
 #	yield(get_tree().create_timer(0.2), "timeout")
 	self.queue_free()
 	

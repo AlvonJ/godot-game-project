@@ -110,7 +110,6 @@ func on_hit(damage):
 func on_destroy():
 	animation_player.queue_free()
 	emit_signal("dead", 30)
-#	yield(get_tree().create_timer(0.2), "timeout")
 	self.queue_free()
 	
 

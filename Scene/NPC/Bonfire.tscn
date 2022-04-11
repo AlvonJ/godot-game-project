@@ -55,7 +55,7 @@ collision_layer = 2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 2.33333 )
 frames = SubResource( 8 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -63,7 +63,7 @@ position = Vector2( 0, -0.523739 )
 scale = Vector2( 1, 0.839673 )
 polygon = PoolVector2Array( -13, 1.33333, 13, 1.33333, 13.3333, 16.6667, -13.3333, 16.6667, -13.6667, 1.33333 )
 
-[node name="BonFireArea" type="Area2D" parent="."]
+[node name="BonFireArea" type="Area2D" parent="." groups=["detector"]]
 visible = false
 collision_layer = 2
 collision_mask = 8

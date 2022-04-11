@@ -22,6 +22,9 @@ var enemies = [
 		],
 		[
 			["SlimeBlack", 3], ["ShadowHound", 2], ["SlimeBlack", 0.5], ["SlimeBlack", 2]
+		],
+		[
+			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1]
 		]
 	]
 

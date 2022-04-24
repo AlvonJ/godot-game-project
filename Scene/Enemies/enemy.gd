@@ -18,8 +18,9 @@ var player_in_area: bool = false
 signal base_damage(damage)
 signal dead(money)
 
-var hp = 50
-var base_damage = 0.1
+var type
+onready var hp = GameData.enemy_data[type]["health"]
+onready var base_damage = GameData.enemy_data[type]["damage"]
 
 onready var health_bar = $HealthBar
 onready var animation_player = $AnimationPlayer
@@ -109,7 +110,7 @@ func on_hit(damage):
 		
 func on_destroy():
 	animation_player.queue_free()
-	emit_signal("dead", 30)
+	emit_signal("dead", GameData.enemy_data[type]["money"])
 	self.queue_free()
 	
 

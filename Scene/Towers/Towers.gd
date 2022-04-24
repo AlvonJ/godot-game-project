@@ -1,5 +1,6 @@
 extends Node2D
 
+const arrow_scene = preload("res://Scene/Projectiles/Arrow.tscn")
 
 var type
 var category
@@ -16,16 +17,15 @@ func _ready():
 func _physics_process(delta):
 	if enemy_array.size() != 0 and built:
 		select_enemy()
-		if not $AnimationPlayer.is_playing():
-			turn()
+#		if not $AnimationPlayer.is_playing():
+#			turn(new_arrow)
 		if ready:
 			fire()
 	else:
 		enemy = null
 	
-func turn():
-	pass
-#	$Tower.look_at(enemy.position)
+#func turn(node):
+#	node.look_at(enemy.position)
 
 func select_enemy():
 	var enemy_progress_array = []
@@ -41,13 +41,18 @@ func fire():
 	ready = false
 	if category == "Projectile":
 		fire_arrow()
-	enemy.on_hit(GameData.tower_data[type]["damage"])
+
 	yield(get_tree().create_timer(GameData.tower_data[type]["rof"]), "timeout")
 	ready = true
 
 func fire_arrow():
-	pass
-#	$AnimationPlayer.play("Fire")
+	var new_arrow = arrow_scene.instance()
+	new_arrow.global_position = global_position + Vector2(32, -5)
+	new_arrow.enemy = enemy
+	new_arrow.type = type
+	
+	get_parent().get_parent().get_node("Projectiles").add_child(new_arrow, true)
+
 
 func _on_Range_body_entered(body):
 	enemy_array.append(body)

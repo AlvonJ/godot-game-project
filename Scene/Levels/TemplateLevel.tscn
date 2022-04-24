@@ -214,4 +214,6 @@ position = Vector2( 555, 300 )
 
 [node name="Towers" type="YSort" parent="YSort"]
 
+[node name="Projectiles" type="YSort" parent="YSort"]
+
 [node name="Enemies" type="YSort" parent="YSort"]

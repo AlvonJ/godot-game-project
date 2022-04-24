@@ -10,5 +10,14 @@ var tower_data = {
 }}
 
 var enemy_data = {
-	
+	"SlimeBlack": {
+		"health": 100,
+		"damage": 0.1,
+		"money": 30
+	},
+	"ShadowHound": {
+		"health": 60,
+		"damage": 0.08,
+		"money": 20
+	}
 }

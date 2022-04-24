@@ -71,6 +71,7 @@ func spawn_enemies(wave_data):
 		var new_enemy = load("res://Scene/Enemies/"+ i[0] +".tscn").instance()
 		new_enemy.connect("base_damage", self, "on_base_damage")
 		new_enemy.connect("dead", self, "on_dead")
+		new_enemy.type = i[0]
 		map_node.get_node("YSort").get_node("Enemies").add_child(new_enemy, true)
 		yield(get_tree().create_timer(i[1]), "timeout")
 		

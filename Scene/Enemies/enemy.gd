@@ -48,15 +48,11 @@ func _physics_process(delta):
 	if bonfire and navigation:			
 		generate_bonfire_path()
 		navigate_the_bonfire()
-		if player_in_area:
-			generate_player_path()
-			navigate_the_player()
-			if in_attack_area:
-				animation_player.play("attack")
-				hit(base_damage)
-			else:
-				animation_player.play("walk")
-			move_to_player()
+		if in_attack_area:
+			animation_player.play("attack")
+			hit(base_damage)
+		else:
+			animation_player.play("walk")
 		move_to_bonfire()
 	
 #	# Set HealthBar Position

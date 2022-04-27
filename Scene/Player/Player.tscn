@@ -86,7 +86,7 @@ frame = 1
 visible = false
 polygon = PoolVector2Array( -9.00034, 0, 8.99966, 0.333336, 8.66632, 14.3333, -9.00034, 14.3333 )
 
-[node name="DetectArea" type="Area2D" parent="." groups=["detector"]]
+[node name="DetectArea" type="Area2D" parent="."]
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]

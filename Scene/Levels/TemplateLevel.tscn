@@ -204,16 +204,16 @@ tile_data = PoolIntArray( -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0
 
 [node name="YSort" type="YSort" parent="."]
 
+[node name="Towers" type="YSort" parent="YSort"]
+
+[node name="Projectiles" type="YSort" parent="YSort"]
+
+[node name="Enemies" type="YSort" parent="YSort"]
+
 [node name="NPCs" type="YSort" parent="YSort"]
 
 [node name="Bonfire" parent="YSort/NPCs" groups=["Bonfire"] instance=ExtResource( 2 )]
 position = Vector2( 640, 360 )
 
 [node name="Player" parent="YSort/NPCs" groups=["Player"] instance=ExtResource( 3 )]
-position = Vector2( 555, 300 )
-
-[node name="Towers" type="YSort" parent="YSort"]
-
-[node name="Projectiles" type="YSort" parent="YSort"]
-
-[node name="Enemies" type="YSort" parent="YSort"]
+position = Vector2( 644, 227 )

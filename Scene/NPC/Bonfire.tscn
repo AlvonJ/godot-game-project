@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://bonfire/bonfire.png" type="Texture" id=1]
+[ext_resource path="res://Scene/light/light.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -55,7 +56,7 @@ collision_layer = 2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 2.33333 )
 frames = SubResource( 8 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -64,10 +65,20 @@ scale = Vector2( 1, 0.839673 )
 polygon = PoolVector2Array( -13, 1.33333, 13, 1.33333, 13.3333, 16.6667, -13.3333, 16.6667, -13.6667, 1.33333 )
 
 [node name="BonFireArea" type="Area2D" parent="." groups=["detector"]]
-visible = false
 collision_layer = 2
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BonFireArea"]
 position = Vector2( 0.999999, 8.5 )
 shape = SubResource( 9 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 1.33333, 2.33333 )
+rotation = -0.0062495
+scale = Vector2( 1.13009, 1.13009 )
+texture = ExtResource( 2 )
+texture_scale = 0.8
+energy = 0.8
+shadow_enabled = true
+shadow_filter = 5
+shadow_filter_smooth = 8.6

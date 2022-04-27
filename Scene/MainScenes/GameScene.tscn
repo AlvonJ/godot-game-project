@@ -26,9 +26,6 @@ script = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Archer" type="TextureButton" parent="UI/HUD" groups=["build_buttons"]]
 anchor_right = 1.0
@@ -93,9 +90,6 @@ __meta__ = {
 [node name="H" type="HBoxContainer" parent="UI/HUD/InfoBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Symbol" type="Label" parent="UI/HUD/InfoBar/H"]
 margin_right = 120.0

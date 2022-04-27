@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Enemy/Normal/shadow_hound.png" type="Texture" id=1]
 [ext_resource path="res://UI/HPbar.jpg" type="Texture" id=2]
@@ -45,6 +45,9 @@ radius = 12.5399
 
 [sub_resource type="CircleShape2D" id=21]
 radius = 9.5
+
+[sub_resource type="OccluderPolygon2D" id=22]
+polygon = PoolVector2Array( -3.5, 5, -4.5, 2.5, 6.5, 2.5, 6.5, 4.5, 5.5, 4, -3.5, 3.5 )
 
 [node name="ShadowHound" type="KinematicBody2D" groups=["Enemy"]]
 scale = Vector2( 2, 2 )
@@ -94,6 +97,9 @@ collision_layer = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDetector"]
 position = Vector2( 1, -0.5 )
 shape = SubResource( 21 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 22 )
 
 [connection signal="area_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_area_entered"]
 [connection signal="area_exited" from="PlayerDetector" to="." method="_on_PlayerDetector_area_exited"]

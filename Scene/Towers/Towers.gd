@@ -13,13 +13,12 @@ var bonfire_position = Vector2(640, 360)
 func _ready():
 	if built:
 		self.get_node("Range/CollisionShape2D").get_shape().radius = 0.5 * GameData.tower_data[type]["range"]
+		
 
 func _physics_process(delta):
 	if enemy_array.size() != 0 and built:
 		select_enemy()
-#		if not $AnimationPlayer.is_playing():
-#			turn(new_arrow)
-		if ready:
+		if ready and not $AnimationPlayer.is_playing():
 			fire()
 	else:
 		enemy = null

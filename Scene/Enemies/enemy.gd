@@ -50,9 +50,11 @@ func _physics_process(delta):
 		navigate_the_bonfire()
 		if in_attack_area:
 			animation_player.play("attack")
+			$LightOccluder2D.scale = Vector2(0,0)
 			hit(base_damage)
 		else:
 			animation_player.play("walk")
+			$LightOccluder2D.scale = Vector2(1,1)
 		move_to_bonfire()
 	
 #	# Set HealthBar Position

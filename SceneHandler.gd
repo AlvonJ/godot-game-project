@@ -1,6 +1,7 @@
 extends Node
 
 
+
 func _ready():
 	load_main_menu()
 	
@@ -23,7 +24,8 @@ func on_quit_pressed():
 	get_tree().quit()
 
 func unload_game(result):
-	$GameScene.queue_free()
-	var main_menu = load("res://Scene/MainMenu/MainMenu.tscn").instance()
-	add_child(main_menu)
-	load_main_menu()
+	if not has_node("MainMenu"):
+		$GameScene.queue_free()
+		var main_menu = load("res://Scene/MainMenu/MainMenu.tscn").instance()
+		add_child(main_menu)
+		load_main_menu()	

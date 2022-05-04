@@ -18,6 +18,11 @@ var player_in_area: bool = false
 signal base_damage(damage)
 signal dead(money)
 
+# variable unutuk hit and die
+export(PackedScene) var EFFECT_HIT: PackedScene = null
+export(PackedScene) var EFFECT_DIED: PackedScene = null
+#-------------------------------
+
 var type
 onready var hp = GameData.enemy_data[type]["health"]
 onready var base_damage = GameData.enemy_data[type]["damage"]
@@ -94,21 +99,28 @@ func move_to_player():
 #onready var impact_area = $Impact
 #var projectile_impact = preload("res://Scenes/SupportScenes/ProjectileImpact.tscn")
 
+# func untuk hit and die
+func spawn_effect(EFFECT: PackedScene, effect_position:Vector2 = global_position):
+	if EFFECT:
+		var effect = EFFECT.instance()
+		get_tree().current_scene.add_child(effect)
+		effect.global_position = effect_position
+
 func hit(damage):
 	emit_signal("base_damage", damage)
-
-	
 
 func on_hit(damage):
 #	impact()
 	hp -= damage
 	health_bar.value = hp
+	spawn_effect(EFFECT_HIT)
 	if hp <= 0:
 		on_destroy()
 		
 func on_destroy():
 	animation_player.queue_free()
 	emit_signal("dead", GameData.enemy_data[type]["money"])
+	spawn_effect(EFFECT_DIED)
 	self.queue_free()
 	
 

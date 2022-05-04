@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Enemy/Normal/slime_black.png" type="Texture" id=1]
 [ext_resource path="res://Scene/Enemies/SlimeBlack.gd" type="Script" id=2]
 [ext_resource path="res://UI/HPbar.jpg" type="Texture" id=3]
+[ext_resource path="res://Scene/hit/hitEffect.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scene/hit/deathEffect.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=11]
 resource_name = "attack"
@@ -54,6 +56,8 @@ polygon = PoolVector2Array( -11, 5.5, -7.5, 9.5, 5.5, 10.5, 10.5, 6.5, 10.5, 3, 
 scale = Vector2( 2, 2 )
 collision_layer = 8
 script = ExtResource( 2 )
+EFFECT_HIT = ExtResource( 4 )
+EFFECT_DIED = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -81,9 +85,6 @@ texture_progress = ExtResource( 3 )
 tint_under = Color( 0.215686, 0.215686, 0.215686, 1 )
 tint_progress = Color( 0, 0.729412, 0.14902, 1 )
 nine_patch_stretch = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 visible = false

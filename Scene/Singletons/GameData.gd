@@ -7,7 +7,15 @@ var tower_data = {
 		"range": 100,
 		"category": "Projectile",
 		"price": 70
-}}
+	},
+	"ArcherT2": {
+		"damage": 40,
+		"rof": 1,
+		"range": 100,
+		"category": "Projectile",
+		"price": 100
+	}
+}
 
 var enemy_data = {
 	"SlimeBlack": {

@@ -45,9 +45,12 @@ func _process(delta):
 func _unhandled_input(event):
 	if event.is_action_released("cancel") and build_mode == true:
 		cancel_build_mode()
-	if event.is_action_released("select") and build_mode == true:
-		verify_and_build()
-		cancel_build_mode()
+	if event.is_action_released("select"):
+		if build_mode == true:
+			verify_and_build()
+			cancel_build_mode()
+		if map_node.has_node("UpgradeButton"):
+			map_node.get_node("UpgradeButton").queue_free()
 
 
 ##

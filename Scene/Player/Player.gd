@@ -30,12 +30,12 @@ func move_vertical():
 	
 func animate():
 	if motion.x == 0 and motion.y == 0:
-		$PlayerAnimation.play("idle")
+		$AnimationPlayer.current_animation = "idle"
 	else:
-		$PlayerAnimation.play("walk")
+		$AnimationPlayer.current_animation = "walk"
 		if motion.x > 0:
-			$PlayerAnimation.flip_h = false
+			$Sprite.scale = Vector2(1,1)
 		elif motion.x < 0:
-			$PlayerAnimation.flip_h = true
+			$Sprite.scale = Vector2(-1,1)
 		
 	

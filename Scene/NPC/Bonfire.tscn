@@ -56,7 +56,7 @@ collision_layer = 2
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 2.33333 )
 frames = SubResource( 8 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -78,7 +78,6 @@ rotation = -0.0062495
 scale = Vector2( 1.13009, 1.13009 )
 texture = ExtResource( 2 )
 texture_scale = 0.8
-energy = 0.8
 shadow_enabled = true
 shadow_filter = 5
 shadow_filter_smooth = 8.6

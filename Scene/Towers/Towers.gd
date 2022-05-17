@@ -76,6 +76,7 @@ func on_upgrade_pressed():
 	var price_tower = GameData.tower_data[build_type]["price"]
 	
 	if get_tree().get_root().get_node("SceneHandler/GameScene").money >= price_tower :
+		queue_free()
 		new_tower.position = global_position
 		new_tower.built = true
 		new_tower.type = build_type

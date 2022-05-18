@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scene/Levels/TemplateLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Buttons/build.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/Buttons/right.png" type="Texture" id=7]
 [ext_resource path="res://Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://UI/HPbar.jpg" type="Texture" id=9]
+[ext_resource path="res://UI/Buttons/attack.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -33,13 +34,24 @@ __meta__ = {
 [node name="Archer" type="TextureButton" parent="UI/HUD" groups=["build_buttons"]]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1125.0
-margin_top = 586.0
-margin_right = -123.0
-margin_bottom = -102.0
+margin_left = 1013.0
+margin_top = 590.0
+margin_right = -235.0
+margin_bottom = -98.0
 rect_scale = Vector2( 3, 3 )
 texture_normal = ExtResource( 2 )
 stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="UI/HUD" groups=["attack_button"]]
+margin_left = 1148.0
+margin_top = 591.0
+margin_right = 1180.0
+margin_bottom = 623.0
+rect_scale = Vector2( 3, 3 )
+texture_normal = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

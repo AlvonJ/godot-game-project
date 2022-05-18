@@ -17,6 +17,10 @@ var tower_data = {
 	}
 }
 
+var human_builder = {
+	"damage": 50
+}
+
 var enemy_data = {
 	"SlimeBlack": {
 		"health": 100,

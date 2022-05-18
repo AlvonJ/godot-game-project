@@ -5,10 +5,20 @@ var motion = Vector2(0, 0)
 
 const SPEED = 300
 
+var attack = false
+
+func _ready():
+	for i in get_tree().get_nodes_in_group("attack_button"):
+		i.connect("button_down", self, "initiate_attack")
+		i.connect("button_up", self, "stop_attack")
+		
 func _physics_process(delta):
 	move_horizontal()
 	move_vertical()
-	animate()
+	if attack:
+		$AnimationPlayer.play("attack")
+	else:
+		animate()
 	move_and_slide(motion)
 
 
@@ -30,12 +40,21 @@ func move_vertical():
 	
 func animate():
 	if motion.x == 0 and motion.y == 0:
-		$AnimationPlayer.current_animation = "idle"
+		$AnimationPlayer.play("idle")
 	else:
-		$AnimationPlayer.current_animation = "walk"
+		$AnimationPlayer.play("walk")
 		if motion.x > 0:
 			$Sprite.scale = Vector2(1,1)
 		elif motion.x < 0:
 			$Sprite.scale = Vector2(-1,1)
-		
+			
+func initiate_attack():
+	attack = true
 	
+func stop_attack():
+	attack = false
+			
+func _on_HitBox_body_entered(body):
+	if body.is_in_group("Enemy"):
+		body.on_hit(GameData.human_builder["damage"])
+		

@@ -62,7 +62,7 @@ func _on_Range_body_exited(body):
 	enemy_array.erase(body)
 	
 func _on_ClickArea_input_event(viewport, event, shape_idx):
-	if event.is_action_released("select") and not $AnimationPlayer.is_playing():
+	if event.is_action_released("select") and not $AnimationPlayer.is_playing() and type != "ArcherT3":
 		var new_upgrade_button = upgrade_button.instance()
 		new_upgrade_button.connect("pressed", self, "on_upgrade_pressed")
 		new_upgrade_button.rect_position = global_position + Vector2(64, -64)
@@ -70,7 +70,12 @@ func _on_ClickArea_input_event(viewport, event, shape_idx):
 			get_parent().get_parent().get_parent().add_child(new_upgrade_button, false)
 		
 func on_upgrade_pressed():
-	var build_type = "ArcherT2"
+	var build_type
+	
+	if type == "ArcherT1":
+		build_type = "ArcherT2"
+	elif type == "ArcherT2":
+		build_type = "ArcherT3"
 	
 	var new_tower = load("res://Scene/Towers/"+ build_type + ".tscn").instance()
 	var price_tower = GameData.tower_data[build_type]["price"]

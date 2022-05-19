@@ -14,6 +14,13 @@ var tower_data = {
 		"range": 100,
 		"category": "Projectile",
 		"price": 100
+	},
+	"ArcherT3": {
+		"damage": 60,
+		"rof": 1,
+		"range": 100,
+		"category": "Projectile",
+		"price": 200
 	}
 }
 

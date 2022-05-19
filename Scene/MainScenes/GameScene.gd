@@ -14,7 +14,7 @@ var current_wave = 0
 var enemies_in_wave = 0
 
 var base_health = 100
-var money = 200
+var money = 500
 
 var enemies = [
 		[

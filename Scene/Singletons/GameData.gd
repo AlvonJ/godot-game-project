@@ -18,7 +18,7 @@ var tower_data = {
 }
 
 var human_builder = {
-	"damage": 50
+	"damage": 20
 }
 
 var enemy_data = {

@@ -9,8 +9,8 @@ var attack = false
 
 func _ready():
 	for i in get_tree().get_nodes_in_group("attack_button"):
-		i.connect("button_down", self, "initiate_attack")
-		i.connect("button_up", self, "stop_attack")
+		i.connect("pressed", self, "initiate_attack")
+
 		
 func _physics_process(delta):
 	move_horizontal()
@@ -52,6 +52,7 @@ func initiate_attack():
 	attack = true
 	
 func stop_attack():
+	$AnimationPlayer.stop()
 	attack = false
 			
 func _on_HitBox_body_entered(body):

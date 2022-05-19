@@ -103,6 +103,20 @@ tracks/3/keys = {
 "update": 1,
 "values": [ false, true, false ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "stop_attack"
+} ]
+}
 
 [sub_resource type="Animation" id=14]
 resource_name = "idle"
@@ -154,8 +168,8 @@ frame = 3
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Sprite"]
 modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 16.667, 0.416727 )
-rotation = 0.257001
+position = Vector2( 16.667, -10 )
+rotation = 0.0366519
 amount = 200
 gravity = Vector2( 0, -50 )
 tangential_accel = -3.67

@@ -41,8 +41,8 @@ tracks/0/keys = {
 }
 
 [sub_resource type="OccluderPolygon2D" id=5]
-closed = false
-polygon = PoolVector2Array( 2, 59, 3, 35, 56, 9, 9, 0, 4, 18, 63, 55, 57, 13 )
+cull_mode = 2
+polygon = PoolVector2Array( 65, 60, 64, 27, 60, 25, 61, 2, 56, 1, 64, -7, 64, -17, 62, -19, 61, -30, 62, -33, 61, -35, 60, -36, 56, -36, 55, -38, 54, -40, 11, -41, 10, -38, 4, -38, 3, -35, 2, -34, 4, -31, 3, -20, 1, -19, 0, -8, 0, -6, 8, 0, 4, 2, 3, 24, 0, 27, 0, 60, 3, 61, 5, 61, 64, 60 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 31.5, 50 )

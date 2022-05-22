@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/InGame_Hostiles-Inbound-Epic-Battle-Music-Powerful-Orchestral.mp3-b65a1c68b4d57886cb7af84651fd45c5.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/InGame_Hostiles-Inbound-Epic-Battle-Music-Powerful-Orchestral.mp3"
+dest_files=[ "res://.import/InGame_Hostiles-Inbound-Epic-Battle-Music-Powerful-Orchestral.mp3-b65a1c68b4d57886cb7af84651fd45c5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

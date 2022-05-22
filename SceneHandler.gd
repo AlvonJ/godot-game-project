@@ -8,6 +8,8 @@ func _ready():
 func load_main_menu():
 	$MainMenu/Text/Option/Start.connect("pressed", self, "on_new_game_pressed")
 	$MainMenu/Text/Option/Exit.connect("pressed", self, "on_quit_pressed")
+	$Music2.stop()
+	$Music.play()
 	
 func unload_main_menu():
 	$MainMenu/Text/Option/Start.disconnect("pressed", self, "on_new_game_pressed")
@@ -16,6 +18,8 @@ func unload_main_menu():
 func on_new_game_pressed():
 	unload_main_menu()
 	$MainMenu.queue_free()
+	$Music.stop()
+	$Music2.play()
 	var game_scene = load("res://Scene/MainScenes/GameScene.tscn").instance()
 	game_scene.connect("game_finished", self, "unload_game")
 	add_child(game_scene)

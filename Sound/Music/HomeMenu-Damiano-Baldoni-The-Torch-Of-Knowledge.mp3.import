@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HomeMenu-Damiano-Baldoni-The-Torch-Of-Knowledge.mp3-7efdf24f79616895be94f5472fd40b3c.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/HomeMenu-Damiano-Baldoni-The-Torch-Of-Knowledge.mp3"
+dest_files=[ "res://.import/HomeMenu-Damiano-Baldoni-The-Torch-Of-Knowledge.mp3-7efdf24f79616895be94f5472fd40b3c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

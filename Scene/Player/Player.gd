@@ -50,10 +50,12 @@ func animate():
 			
 func initiate_attack():
 	attack = true
+	$slash.play();
 	
 func stop_attack():
 	$AnimationPlayer.stop()
 	attack = false
+	$slash.stop();
 			
 func _on_HitBox_body_entered(body):
 	if body.is_in_group("Enemy"):

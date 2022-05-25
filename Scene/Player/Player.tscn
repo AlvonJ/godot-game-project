@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://character/human/human_builder.png" type="Texture" id=1]
 [ext_resource path="res://Scene/Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Sound/SFX/slash.mp3" type="AudioStream" id=3]
 
 [sub_resource type="Curve" id=16]
 min_value = -200.0
@@ -210,5 +211,8 @@ anims/RESET = SubResource( 19 )
 anims/attack = SubResource( 20 )
 anims/idle = SubResource( 14 )
 anims/walk = SubResource( 15 )
+
+[node name="slash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="body_entered" from="Sprite/HitBox" to="." method="_on_HitBox_body_entered"]

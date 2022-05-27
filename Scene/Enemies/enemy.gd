@@ -11,6 +11,7 @@ var bonfire = null
 var player = null
 var in_attack_area: bool = false
 var player_in_area: bool = false
+var motion = Vector2(0, 0)
 
 ##############
 #TAKE DAMAGE
@@ -58,7 +59,7 @@ func _physics_process(delta):
 			$LightOccluder2D.scale = Vector2(0,0)
 			hit(base_damage)
 		else:
-			animation_player.play("walk")
+			$AnimationPlayer.play("walk")
 			$LightOccluder2D.scale = Vector2(1,1)
 		move_to_bonfire()
 	
@@ -79,22 +80,12 @@ func generate_bonfire_path():
 
 func move_to_bonfire():
 	velocity = move_and_slide(velocity)
-
-## Move to player
-func navigate_the_player():
-	if path1.size() > 0:
-		velocity1 = global_position.direction_to(path1[1]) * speed
+	$AnimationPlayer.play("walk")
+	if velocity.x > 0:
+		$Sprite.scale = Vector2(1,1)
+	elif velocity.x < 0:
+		$Sprite.scale = Vector2(-1,1)
 		
-		if global_position == path1[0]:
-			path1.pop_front()
-			
-func generate_player_path():
-	if navigation1 != null and player != null:
-		path1 = navigation1.get_simple_path(global_position, player.global_position, true)
-
-func move_to_player():
-	velocity1 = move_and_slide(velocity1)
-	
 
 #onready var impact_area = $Impact
 #var projectile_impact = preload("res://Scenes/SupportScenes/ProjectileImpact.tscn")
@@ -122,6 +113,8 @@ func on_destroy():
 	emit_signal("dead", GameData.enemy_data[type]["money"])
 	spawn_effect(EFFECT_DIED)
 	self.queue_free()
+		
+
 	
 
 

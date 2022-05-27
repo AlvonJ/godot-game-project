@@ -24,8 +24,17 @@ var enemies = [
 			["SlimeBlack", 3], ["ShadowHound", 2], ["SlimeBlack", 0.5], ["SlimeBlack", 2]
 		],
 		[
-			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1]
-		]
+			["SlimeBlack", 0.5], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1],["ShadowHound", 1],
+		],
+				[
+			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2],
+		],
+				[
+			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2],
+		],
+				[
+			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1]
+		],
 	]
 
 func _ready():
@@ -75,6 +84,15 @@ func spawn_enemies(wave_data):
 		new_enemy.connect("base_damage", self, "on_base_damage")
 		new_enemy.connect("dead", self, "on_dead")
 		new_enemy.type = i[0]
+		var random_x = randi() % 1430 - 80
+		var random_y
+		if random_x <= -20 or random_x > 1300:
+			random_y = randi() % 850 - 50
+		else:
+			var list_random_y = [-49, 780]
+			random_y = list_random_y[randi() % 2]
+		
+		new_enemy.global_position = Vector2(random_x, random_y)
 		map_node.get_node("YSort").get_node("Enemies").add_child(new_enemy, true)
 		yield(get_tree().create_timer(i[1]), "timeout")
 		

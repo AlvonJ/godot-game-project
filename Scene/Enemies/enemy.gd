@@ -64,7 +64,9 @@ func _physics_process(delta):
 		move_to_bonfire()
 	
 #	# Set HealthBar Position
-	health_bar.set_position(position - Vector2(13,17))
+	if type == "SlimeBlack":
+		health_bar.set_position(position - Vector2(13,17))
+		
 
 ## Move to bonfire
 func navigate_the_bonfire():
@@ -83,8 +85,12 @@ func move_to_bonfire():
 	$AnimationPlayer.play("walk")
 	if velocity.x > 0:
 		$Sprite.scale = Vector2(1,1)
+		if type == "ShadowHound":
+			health_bar.set_position(position - Vector2(12,17))
 	elif velocity.x < 0:
 		$Sprite.scale = Vector2(-1,1)
+		if type == "ShadowHound":
+			health_bar.set_position(position - Vector2(20,17))
 		
 
 #onready var impact_area = $Impact

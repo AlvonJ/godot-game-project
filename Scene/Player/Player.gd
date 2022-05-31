@@ -23,20 +23,45 @@ func _physics_process(delta):
 
 
 func move_horizontal():
-	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
-		motion.x = -SPEED
-	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
-		motion.x = SPEED
-	else:
-		motion.x = 0
+	if (global_position.x > 30 and global_position.x < 1250):
+		if Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
+			motion.x = SPEED
+		elif Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
+			motion.x = -SPEED
+		else:
+			motion.x = 0
+	elif (global_position.x <= 30):
+		if Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
+			motion.x = SPEED
+		else:
+			motion.x = 0
+	elif (global_position.x >= 1250):
+		if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
+			motion.x = -SPEED
+		else:
+			motion.x = 0
+		
+		
 		
 func move_vertical():
-	if Input.is_action_pressed("up"):
-		motion.y = -SPEED
-	elif Input.is_action_pressed("down"):
-		motion.y = SPEED
-	else:
-		motion.y = 0
+	if (global_position.y > 30 and global_position.y < 690):	
+		if Input.is_action_pressed("up"):
+			motion.y = -SPEED
+		elif Input.is_action_pressed("down"):
+			motion.y = SPEED
+		else:
+			motion.y = 0
+	elif global_position.y <= 30:
+		if Input.is_action_pressed("down"):
+			motion.y = SPEED
+		else:
+			motion.y = 0
+	elif global_position.y >= 690:
+		if Input.is_action_pressed("up"):
+			motion.y = -SPEED
+		else:
+			motion.y = 0
+		
 	
 func animate():
 	if motion.x == 0 and motion.y == 0:

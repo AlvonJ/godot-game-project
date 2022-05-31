@@ -89,7 +89,7 @@ func on_upgrade_pressed():
 		get_tree().get_root().get_node("SceneHandler/GameScene").map_node.get_node("YSort/Towers").add_child(new_tower, true)
 		new_tower.get_node("AnimationPlayer").play("deploy")
 		get_tree().get_root().get_node("SceneHandler/GameScene").money -= price_tower
-		get_tree().get_root().get_node("SceneHandler/GameScene/UI/HUD/InfoBar/H/Money").text = String(get_tree().get_root().get_node("SceneHandler/GameScene").money)
+		get_tree().get_root().get_node("SceneHandler/GameScene/UI/HUD/InfoBar/Money").text = String(get_tree().get_root().get_node("SceneHandler/GameScene").money)
 		
 		get_parent().get_parent().get_parent().get_node("UpgradeButton").queue_free()
 	

@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://character/human/human_builder.png" type="Texture" id=1]
 [ext_resource path="res://Scene/MainMenu/MenuButton.gd" type="Script" id=2]
 [ext_resource path="res://Scene/MainMenu/Font/Minecraft.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://UI/Buttons/point_arrow.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=17]
 size = 50
@@ -31,6 +32,11 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "arrows",
+"speed": 5.0
 } ]
 
 [node name="TextureButton" type="TextureButton"]
@@ -40,7 +46,10 @@ margin_bottom = 195.0
 rect_min_size = Vector2( 0, 80 )
 focus_mode = 1
 script = ExtResource( 2 )
-arrow_margin_from_center = 144
+__meta__ = {
+"_edit_use_anchors_": false
+}
+arrow_margin_from_center = 110
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_right = 1.0
@@ -52,15 +61,17 @@ bbcode_text = "[center]Start[/center]"
 text = "Start"
 
 [node name="LeftDog" type="AnimatedSprite" parent="."]
-position = Vector2( 368, 26.6667 )
-scale = Vector2( 2, 2 )
+position = Vector2( 402, 26.6667 )
+scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
+animation = "arrows"
 playing = true
 
 [node name="RightDog" type="AnimatedSprite" parent="."]
-position = Vector2( 656, 26.6667 )
-scale = Vector2( 2, 2 )
+position = Vector2( 622, 26.6667 )
+scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 1 )
+animation = "arrows"
 playing = true
 flip_h = true
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scene/Levels/TemplateLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Buttons/build.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://UI/HPbar.jpg" type="Texture" id=9]
 [ext_resource path="res://UI/Buttons/attack.png" type="Texture" id=10]
+[ext_resource path="res://UI/Buttons/coin.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -102,44 +103,47 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="H" type="HBoxContainer" parent="UI/HUD/InfoBar"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="TextureRect" type="TextureRect" parent="UI/HUD/InfoBar"]
+margin_left = 14.0
+margin_top = 6.0
+margin_right = 174.0
+margin_bottom = 166.0
+rect_scale = Vector2( 0.307642, 0.307642 )
+texture = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Symbol" type="Label" parent="UI/HUD/InfoBar/H"]
-margin_right = 120.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 120, 60 )
-custom_fonts/font = SubResource( 1 )
-text = "$"
-align = 2
-valign = 1
-
-[node name="Money" type="Label" parent="UI/HUD/InfoBar/H"]
-margin_left = 124.0
-margin_right = 244.0
-margin_bottom = 60.0
+[node name="Money" type="Label" parent="UI/HUD/InfoBar"]
+margin_left = 62.0
+margin_top = 1.0
+margin_right = 182.0
+margin_bottom = 61.0
 rect_min_size = Vector2( 120, 60 )
 custom_fonts/font = SubResource( 1 )
 text = "100"
 align = 2
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Wave" type="Label" parent="UI/HUD/InfoBar/H"]
-margin_left = 248.0
-margin_right = 488.0
-margin_bottom = 60.0
+[node name="Wave" type="Label" parent="UI/HUD/InfoBar"]
+margin_left = 1024.0
+margin_top = 1.0
+margin_right = 1264.0
+margin_bottom = 61.0
 rect_min_size = Vector2( 240, 60 )
 custom_fonts/font = SubResource( 1 )
 text = "Wave 0"
 align = 2
 valign = 1
 
-[node name="HP" type="TextureProgress" parent="UI/HUD/InfoBar/H"]
-margin_left = 816.0
-margin_top = 15.0
-margin_right = 1216.0
-margin_bottom = 45.0
+[node name="HP" type="TextureProgress" parent="UI/HUD/InfoBar"]
+margin_left = 451.0
+margin_top = 14.0
+margin_right = 851.0
+margin_bottom = 44.0
 rect_min_size = Vector2( 400, 30 )
 size_flags_horizontal = 10
 size_flags_vertical = 4
@@ -150,12 +154,12 @@ tint_under = Color( 0.215686, 0.215686, 0.215686, 1 )
 tint_progress = Color( 0.294118, 0.784314, 0, 1 )
 nine_patch_stretch = true
 
-[node name="Tween" type="Tween" parent="UI/HUD/InfoBar/H/HP"]
+[node name="Tween" type="Tween" parent="UI/HUD/InfoBar/HP"]
 
-[node name="Control" type="Control" parent="UI/HUD/InfoBar/H"]
+[node name="Control" type="Control" parent="UI/HUD/InfoBar"]
 margin_left = 1220.0
 margin_right = 1280.0
-margin_bottom = 60.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 60, 60 )
 __meta__ = {
 "_edit_use_anchors_": false

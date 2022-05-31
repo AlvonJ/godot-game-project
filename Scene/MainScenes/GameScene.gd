@@ -39,7 +39,7 @@ var enemies = [
 
 func _ready():
 	map_node = $TemplateLevel
-	$UI/HUD/InfoBar/H/Money.text = String(money)
+	$UI/HUD/InfoBar/Money.text = String(money)
 	
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.connect("pressed", self, "initiate_build_mode", [i.get_name()])
@@ -69,7 +69,7 @@ func _unhandled_input(event):
 func start_next_wave():
 	var wave_data = retrieve_wave_data()
 	yield(get_tree().create_timer(2), "timeout")
-	$UI/HUD/InfoBar/H/Wave.text = "Wave " + String(current_wave)
+	$UI/HUD/InfoBar/Wave.text = "Wave " + String(current_wave)
 	spawn_enemies(wave_data)
 
 func retrieve_wave_data():
@@ -141,7 +141,7 @@ func verify_and_build():
 			new_tower.get_node("AnimationPlayer").play("deploy")
 			map_node.get_node("TowerExclusion").set_cellv(build_tile, 4)
 			money -= price_tower
-			$UI/HUD/InfoBar/H/Money.text = String(money)
+			$UI/HUD/InfoBar/Money.text = String(money)
 
 func on_base_damage(damage):
 	base_health -= damage
@@ -152,6 +152,6 @@ func on_base_damage(damage):
 		
 func on_dead(dead_money):
 	money += dead_money
-	$UI/HUD/InfoBar/H/Money.text = String(money)
+	$UI/HUD/InfoBar/Money.text = String(money)
 	
 	enemies_in_wave -= 1

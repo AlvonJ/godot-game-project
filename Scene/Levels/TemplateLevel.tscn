@@ -240,4 +240,4 @@ tile_data = PoolIntArray( -65528, 1, 0, -65527, 1, 0, -65526, 1, 0, -65525, 1, 0
 position = Vector2( 640, 360 )
 
 [node name="Player" parent="YSort/NPCs" groups=["Player"] instance=ExtResource( 3 )]
-position = Vector2( 641, 252 )
+position = Vector2( 632, 249 )

@@ -38,7 +38,8 @@ var enemies = [
 	]
 
 func _ready():
-	map_node = $TemplateLevel
+	map_node = load("res://Scene/Levels/Level1.tscn").instance()
+	add_child(map_node)
 	$UI/HUD/InfoBar/Money.text = String(money)
 	
 	for i in get_tree().get_nodes_in_group("build_buttons"):

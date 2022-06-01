@@ -36,7 +36,6 @@ func _ready():
 	var tree = get_tree()
 	if tree.has_group("Navigation"):
 		navigation = tree.get_nodes_in_group("Navigation")[0]
-		navigation1 = tree.get_nodes_in_group("Navigation")[0]
 	if tree.has_group("Bonfire"):
 		bonfire = tree.get_nodes_in_group("Bonfire")[0]
 	if tree.has_group("Player"):
@@ -48,19 +47,13 @@ func _ready():
 	health_bar.set_as_toplevel(true)
 	
 	# start the walk animation
-	animation_player.play("walk")
+#	animation_player.play("walk")
 		
 func _physics_process(delta):
 	if bonfire and navigation:			
 		generate_bonfire_path()
 		navigate_the_bonfire()
-		if in_attack_area:
-			animation_player.play("attack")
-			$LightOccluder2D.scale = Vector2(0,0)
-			hit(base_damage)
-		else:
-			$AnimationPlayer.play("walk")
-			$LightOccluder2D.scale = Vector2(1,1)
+		animate()
 		move_to_bonfire()
 	
 #	# Set HealthBar Position
@@ -82,7 +75,6 @@ func generate_bonfire_path():
 
 func move_to_bonfire():
 	velocity = move_and_slide(velocity)
-	$AnimationPlayer.play("walk")
 	if velocity.x > 0:
 		$Sprite.scale = Vector2(1,1)
 		if type == "ShadowHound":
@@ -119,18 +111,12 @@ func on_destroy():
 	emit_signal("dead", GameData.enemy_data[type]["money"])
 	spawn_effect(EFFECT_DIED)
 	self.queue_free()
-		
-
 	
-
-
-
-
-
-
-
-
-
-
-
-
+func animate():
+	if in_attack_area:
+		animation_player.current_animation = "attack"
+		$LightOccluder2D.scale = Vector2(0,0)
+		hit(base_damage)
+	else:
+		animation_player.current_animation = "walk"
+		$LightOccluder2D.scale = Vector2(1,1)

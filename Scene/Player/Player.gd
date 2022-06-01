@@ -12,9 +12,6 @@ onready var joystick = get_node('/root/SceneHandler/GameScene/UI/HUD/Joystick')
 func _ready():
 	for i in get_tree().get_nodes_in_group("attack_button"):
 		i.connect("pressed", self, "initiate_attack")
-	for i in get_tree().get_nodes_in_group("joystick_button"):
-		i.connect("when_joystick_touched", self, "move_character")
-	self.connect("joystick_touched", joystick, "joystick_touched")
 		
 func _physics_process(delta):
 	var velocity = joystick.player_velocity()

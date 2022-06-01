@@ -1,7 +1,7 @@
 tool
 extends TextureButton
 
-export(String) var text = "Start"
+export(String) var text = "Levels"
 export(int) var arrow_margin_from_center = 100
 
 func _ready():
@@ -36,7 +36,6 @@ func _on_TextureButton_focus_entered():
 
 func _on_TextureButton_focus_exited():
 	hide_arrows()
-
 
 func _on_TextureButton_mouse_entered():
 	grab_focus()

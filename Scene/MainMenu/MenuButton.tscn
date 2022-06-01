@@ -46,9 +46,6 @@ margin_bottom = 195.0
 rect_min_size = Vector2( 0, 80 )
 focus_mode = 1
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 arrow_margin_from_center = 110
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

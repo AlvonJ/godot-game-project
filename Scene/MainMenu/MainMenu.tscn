@@ -24,9 +24,6 @@ rect_scale = Vector2( 0.997532, 1.03071 )
 stream = ExtResource( 5 )
 autoplay = true
 script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Text" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -58,18 +55,28 @@ rect_min_size = Vector2( 0, 360 )
 alignment = 1
 
 [node name="Start" parent="Text/Option" instance=ExtResource( 1 )]
-margin_top = 108.0
+margin_top = 71.0
 margin_right = 1280.0
-margin_bottom = 178.0
+margin_bottom = 141.0
 rect_min_size = Vector2( 0, 70 )
 focus_neighbour_top = NodePath("../Exit")
+focus_neighbour_bottom = NodePath("../Exit")
+text = "Start"
+arrow_margin_from_center = 125
+
+[node name="Levels" parent="Text/Option" instance=ExtResource( 1 )]
+margin_top = 145.0
+margin_right = 1280.0
+margin_bottom = 215.0
+rect_min_size = Vector2( 0, 70 )
+focus_neighbour_top = NodePath("../Start")
 focus_neighbour_bottom = NodePath("../Exit")
 arrow_margin_from_center = 125
 
 [node name="Exit" parent="Text/Option" instance=ExtResource( 1 )]
-margin_top = 182.0
+margin_top = 219.0
 margin_right = 1280.0
-margin_bottom = 252.0
+margin_bottom = 289.0
 rect_min_size = Vector2( 0, 70 )
 focus_neighbour_top = NodePath("../Start")
 focus_neighbour_bottom = NodePath("../Start")
@@ -78,4 +85,5 @@ arrow_margin_from_center = 101
 
 [connection signal="finished" from="background" to="background" method="_on_background_finished"]
 [connection signal="pressed" from="Text/Option/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Text/Option/Levels" to="." method="_on_Levels_pressed"]
 [connection signal="pressed" from="Text/Option/Exit" to="." method="_on_Option_pressed"]

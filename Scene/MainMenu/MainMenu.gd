@@ -5,7 +5,10 @@ func _ready():
 
 func _on_Start_pressed():
 	print("Start")
-
+	
+func _on_Levels_pressed():
+	get_tree().change_scene("res://Scene/Levels/Select/Selection.tscn")
+	print("Levels")
 
 func _on_Option_pressed():
 	print("Exit")

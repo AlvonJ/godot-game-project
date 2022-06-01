@@ -7,13 +7,18 @@ const SPEED = 300
 
 var attack = false
 
+onready var joystick = get_node('/root/SceneHandler/GameScene/UI/HUD/Joystick')
+
 func _ready():
 	for i in get_tree().get_nodes_in_group("attack_button"):
 		i.connect("pressed", self, "initiate_attack")
 	for i in get_tree().get_nodes_in_group("joystick_button"):
 		i.connect("when_joystick_touched", self, "move_character")
+	self.connect("joystick_touched", joystick, "joystick_touched")
 		
 func _physics_process(delta):
+	var velocity = joystick.player_velocity()
+	motion = velocity * SPEED
 #	move_horizontal()
 #	move_vertical()
 	if attack:
@@ -21,7 +26,6 @@ func _physics_process(delta):
 	else:
 		animate()
 	move_and_slide(motion)
-	print(motion)
 
 func move_horizontal():
 	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
@@ -61,7 +65,3 @@ func stop_attack():
 func _on_HitBox_body_entered(body):
 	if body.is_in_group("Enemy"):
 		body.on_hit(GameData.human_builder["damage"])
-
-func _on_Joystick_touched(velocity):
-	# Move horizontal
-	motion = (velocity * SPEED)

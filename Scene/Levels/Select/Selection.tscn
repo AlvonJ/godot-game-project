@@ -19,6 +19,9 @@ margin_right = 4.0
 margin_bottom = 0.359924
 rect_pivot_offset = Vector2( -320, -670 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 base_button = ExtResource( 5 )
 total_levels = 10
 grid = NodePath("divider/HBoxContainer/center_buttons/button_grid")

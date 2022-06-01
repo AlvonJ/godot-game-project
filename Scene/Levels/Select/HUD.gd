@@ -18,6 +18,7 @@ func generate_button(name:int):
 	var bb = base_button.instance()
 	bb.set_name(str(name))
 	bb.set_text(str(name))
+	bb.level = "Level" + str(name)
 	bb.level_path = ("res://Scene/Levels/Level" + str(name) + ".tscn")
 	grid.add_child(bb)
 	

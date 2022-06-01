@@ -22,6 +22,7 @@ func on_new_game_pressed():
 	$Music2.play()
 	var game_scene = load("res://Scene/MainScenes/GameScene.tscn").instance()
 	game_scene.connect("game_finished", self, "unload_game")
+	game_scene.map_node = load("res://Scene/Levels/Level1.tscn").instance()
 	add_child(game_scene)
 	
 func on_levels_pressed():

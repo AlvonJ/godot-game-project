@@ -38,5 +38,15 @@ var enemy_data = {
 		"health": 60,
 		"damage": 0.08,
 		"money": 20
+	},
+	"EvilEye": {
+		"health": 300,
+		"damage": 0.5,
+		"money": 100
+	},
+	"EldrichWraith": {
+		"health": 450,
+		"damage": 1,
+		"money": 300
 	}
 }

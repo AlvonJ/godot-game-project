@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scene/JoyStick/Joystick.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Buttons/build.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://UI/HPbar.jpg" type="Texture" id=9]
 [ext_resource path="res://UI/Buttons/attack.png" type="Texture" id=10]
 [ext_resource path="res://UI/Buttons/coin.png" type="Texture" id=11]
+[ext_resource path="res://Scene/JoyStick/JoystickButton.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 40
@@ -167,8 +168,13 @@ __meta__ = {
 }
 
 [node name="Joystick" parent="UI/HUD" instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 144, 615 )
 scale = Vector2( 3, 3 )
+
+[node name="JoystickButton" parent="UI/HUD" instance=ExtResource( 12 )]
+position = Vector2( 128, 608 )
+scale = Vector2( 1.5, 1.5 )
 
 [connection signal="pressed" from="UI/HUD/GameControls/PausePlay" to="UI" method="_on_PausePlay_pressed"]
 [connection signal="pressed" from="UI/HUD/GameControls/SpeedUp" to="UI" method="_on_SpeedUp_pressed"]

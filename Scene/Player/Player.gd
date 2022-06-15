@@ -8,13 +8,14 @@ const SPEED = 300
 var attack = false
 
 onready var joystick = get_node('/root/SceneHandler/GameScene/UI/HUD/Joystick')
+onready var joystick_button = get_node('/root/SceneHandler/GameScene/UI/HUD/JoystickButton/TouchScreenButton')
 
 func _ready():
 	for i in get_tree().get_nodes_in_group("attack_button"):
 		i.connect("pressed", self, "initiate_attack")
 		
 func _physics_process(delta):
-	var velocity = joystick.player_velocity()
+	var velocity = joystick_button.get_value()
 	motion = velocity * SPEED
 #	move_horizontal()
 #	move_vertical()

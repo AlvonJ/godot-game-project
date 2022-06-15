@@ -23,18 +23,18 @@ var enemies = [
 		[
 			["SlimeBlack", 3], ["ShadowHound", 2], ["SlimeBlack", 0.5], ["SlimeBlack", 2]
 		],
-		[
-			["SlimeBlack", 0.5], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1],["ShadowHound", 1],
-		],
-				[
-			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2],
-		],
-				[
-			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2],
-		],
-				[
-			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1]
-		],
+#		[
+#			["SlimeBlack", 0.5], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1],["ShadowHound", 1],
+#		],
+#				[
+#			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2],
+#		],
+#				[
+#			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2],
+#		],
+#				[
+#			["SlimeBlack", 2], ["ShadowHound", 3], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1], ["ShadowHound", 1], ["SlimeBlack", 2], ["ShadowHound", 1]
+#		],
 	]
 
 func _ready():
@@ -51,6 +51,9 @@ func _process(delta):
 		update_tower_preview()
 	if enemies_in_wave == 0 and current_wave > 0 and current_wave <= (enemies.size() - 1):
 		start_next_wave()
+	if current_wave > (enemies.size() -1) and enemies_in_wave == 0:
+		emit_signal("game_finished", false)
+	
 
 func _unhandled_input(event):
 	if event.is_action_released("cancel") and build_mode == true:

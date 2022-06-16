@@ -11,8 +11,8 @@ var threshold = 10
 
 signal _on_joystick_touched(value)
 
-func _process(delta):
-	print(get_button_pos().normalized())
+#func _process(delta):
+#	print(get_button_pos().normalized())
 
 func get_button_pos():
 	return position + radius

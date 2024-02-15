@@ -2,7 +2,7 @@
 
 A Tower Defense game titled Ember that was created using the Godot Engine.
 
-## Techologies and Tools
+## Technologies and Tools
 - Godot 3
 - GDScript
 - Aseprite
